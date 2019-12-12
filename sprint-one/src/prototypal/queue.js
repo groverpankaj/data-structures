@@ -24,7 +24,7 @@ var queueMethods = {
     let maxVal = findMaxVal(this.storage);
     let dequeueReturn = this.storage["1"];
     delete this.storage["1"];
-    for(currKey in this.storage) {
+    for(let currKey in this.storage) {
       this.storage[Number(currKey)-1] = this.storage[currKey];
     }
     delete this.storage[maxVal];
