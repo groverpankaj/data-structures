@@ -19,7 +19,7 @@ var Stack = function() {
     }
 
     return maxVal;
-   }  
+   }; 
 
 
   // Implement the methods below
