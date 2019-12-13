@@ -20,11 +20,23 @@ Graph.prototype.contains = function(node) {
 // Removes a node from the graph.
 Graph.prototype.removeNode = function(node) {
   // Find the index of node in nodeArr and store it in a variable
-
+  var nodePos = this.nodeArr.indexOf(node);
   // if index variable is not -1
-    // return use splice on nodeArr and store the val in the return variable
+  if (nodePos > -1) {
 
+    // use splice on nodeArr with the index
+    this.nodeArr.splice(nodePos, 1);
+    // lookup this.nodeEdges with the node as key and store the array in the variable
+    var edges = this.nodeEdges[node];
+
+    // use a for loop to iterate over the array
+    for (let i = 0; i < edges.length; i++) {
+      // call .removeEdge on node and current element of iteration
+      this.removeEdge(node, edges[i]);
+    }
     // delete the property in the nodeEdges object with key as node
+    delete this.nodeEdges[node];
+  }
 };
 
 // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
@@ -42,10 +54,31 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
 
 // Remove an edge between any two specified (by value) nodes.
 Graph.prototype.removeEdge = function(fromNode, toNode) {
+  // use fromNode as a key to lookup the array of edges in nodeEdges
+  // find the index of toNode in the array of edges
+  var toIndex = this.nodeEdges[fromNode].indexOf(toNode);
+
+
+  // use splice to remove the index of toNode in the array
+  if (toIndex > -1) {
+    this.nodeEdges[fromNode].splice(toIndex, 1);
+  }
+
+  // use toNode as a key to lookup the array of edges in nodeEdges
+  // find the index of fromNode in the array of edges
+  var fromIndex = this.nodeEdges[toNode].indexOf(fromNode);
+  // use splice to remove the index of fromNode in the array
+  if (fromIndex > -1) {
+    this.nodeEdges[toNode].splice(fromIndex, 1);
+  }
 };
 
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
+  // iterate over the nodeArr and pass each value to the callback function
+  _.each(this.nodeArr, function(value) {
+    cb(value);
+  });
 };
 
 /*
