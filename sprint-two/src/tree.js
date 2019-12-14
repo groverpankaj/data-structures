@@ -11,10 +11,13 @@ var Tree = function(value) {
 var treeMethods = {};
 
 treeMethods.addChild = function(value) {
-  // create a new tree with value provided and store it in newTree variable
-  var newTree = Tree(value);
-  // push the newTree to this.children array
-  this.children.push(newTree);
+  // if arguments.length is greater than 0 the create a child
+  if (arguments.length > 0) {
+    // create a new tree with value provided and store it in newTree variable
+    var newTree = Tree(value);
+    // push the newTree to this.children array
+    this.children.push(newTree);
+  }
 };
 
 treeMethods.contains = function(target) {
