@@ -2,8 +2,7 @@ var Tree = function(value) {
   var newTree = {};
   newTree.value = value;
 
-  // your code here
-  newTree.children = [];  // fix me
+  newTree.children = [];
   _.extend(newTree, treeMethods);
 
   return newTree;
@@ -43,4 +42,12 @@ treeMethods.contains = function(target) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+
+ addChild
+ O(1) (constant time)
+ we assume array.push() is a constant time operation but don't know the exact js implementation
+
+ contains
+ O(n) (linear time)
+
  */
