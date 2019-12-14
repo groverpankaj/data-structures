@@ -39,11 +39,49 @@ var bstTreeMethod = {
   },
 
   contains: function(value) {
-
+    // check if this.value is equal to the target
+    if (this.value === value) {
+      // if yes return true
+      return true;
+    }
+    // if this.value is > target
+    if (this.value > value) {
+      // if this.left is null
+      if (this.left === null) {
+        // return false
+        return false;
+      } else {
+        // else call this.left.contains(value)
+        return this.left.contains(value);
+      }
+    } else {
+      // else
+      // if this.right is null
+      if (this.right === null) {
+        // return false
+        return false;
+      } else {
+        // else call this.right.contains(value)
+        return this.right.contains(value);
+      }
+    }
+    // return false
+    return false;
   },
 
   depthFirstLog: function(callback) {
-
+    // execute the callback on this.value
+    callback(this.value);
+    // if this.left is ! null
+    if (this.left !== null) {
+      // recursively call this.left.depthFirstLog
+      this.left.depthFirstLog(callback);
+    }
+    // if this.right is ! null
+    if (this.right !== null) {
+      // recursively call this.right.depthFirstLog
+      this.right.depthFirstLog(callback);
+    }
   }
 };
 
