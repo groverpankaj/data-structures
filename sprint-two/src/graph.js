@@ -46,10 +46,13 @@ Graph.prototype.hasEdge = function(fromNode, toNode) {
 
 // Connects two nodes in a graph by adding an edge between them.
 Graph.prototype.addEdge = function(fromNode, toNode) {
-  // push the toNode value to the fromNode key array in nodeEdges
-  this.nodeEdges[fromNode].push(toNode);
-  // push the fromNode value to the toNode key array in nodeEdges
-  this.nodeEdges[toNode].push(fromNode);
+  // check if both nodes exist in nodeArray
+  if (this.nodeArr.includes(fromNode) && this.nodeArr.includes(toNode)) {
+    // push the toNode value to the fromNode key array in nodeEdges
+    this.nodeEdges[fromNode].push(toNode);
+    // push the fromNode value to the toNode key array in nodeEdges
+    this.nodeEdges[toNode].push(fromNode);
+  }
 };
 
 // Remove an edge between any two specified (by value) nodes.
@@ -83,6 +86,28 @@ Graph.prototype.forEachNode = function(cb) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+
+ addNode
+ O(1) (constant time)
+ assumes js arrays have constant time for push
+
+ contains
+ O(n) (linear time)
+
+ removeNode
+ O(n) (linear time)
+
+ hasEdge
+ O(n) (linear time)
+
+ addEdge
+ O(1) (constant time)
+
+ removeEdge
+ O(n) (linear time)
+
+ forEachNode
+ O(n) (linear time)
  */
 
 
