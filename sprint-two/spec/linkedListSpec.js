@@ -52,4 +52,12 @@ describe('linkedList', function() {
   });
 
   // add more tests here to test the functionality of linkedList
+  it('should set head and tail pointers to null when the last node is removed', function() {
+    // add a node to the list
+    linkedList.addToTail(2);
+    // remove the same node from the list
+    linkedList.removeHead();
+    expect(linkedList.head).to.equal(null);
+    expect(linkedList.tail).to.equal(null);
+  });
 });

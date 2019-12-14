@@ -74,7 +74,7 @@ var LinkedList = function() {
       // else start iteration
 
       // while currNode.next !== null
-      while(currNode !== null) {
+      while (currNode !== null) {
         //   if currNode.value = target
         if (currNode.value === target) {
           //     set result to true
@@ -105,4 +105,12 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ addToTail
+ O(1) (constant time)
+
+ removeHead
+ O(1) (constant time)
+
+ contains
+ O(n) (linear time)
  */
