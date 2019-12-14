@@ -40,9 +40,18 @@ setPrototype.remove = function(item) {
     // splice the _storage array with argument of posItem
     this._storage.splice(posItem, 1);
   }
-
 };
 
 /*
  * Complexity: What is the time complexity of the above functions?
+
+ add
+ O(n) (linear time)
+
+ contains
+ O(n) (linear time)
+
+ remove
+ O(n) (linear time)
+
  */
