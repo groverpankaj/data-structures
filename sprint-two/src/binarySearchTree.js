@@ -88,4 +88,10 @@ var bstTreeMethod = {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+  insert
+  Best case O(h) where h is max height and O(n) in worst case
+  
+  contains
+
+  depthFirstLog
  */
